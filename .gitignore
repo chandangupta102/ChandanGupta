@@ -1,0 +1,15 @@
+# =======================================
+#       Ignore WebStorm Files
+# =======================================
+.idea/
+
+# =======================================
+#       Ignore Build Artifacts
+# =======================================
+
+# ignore bower components
+typings/
+dist/
+
+# ignore almost all node modules
+node_modules/
