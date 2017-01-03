@@ -1,5 +1,63 @@
-<form>
-    <input type="radio" name="gender" value="male" checked> Male<br>
-    <input type="radio" name="gender" value="female"> Female<br>
-    <input type="radio" name="gender" value="other"> Other
-</form>
+<div class="maindiv">
+    <div class="leftdiv">
+        <table>
+            <caption>RESULTS</caption>
+            <tr [class.invalid]="a.value < 0">
+                <td><p>Principal Amt:</p></td>
+                <td><p>{{a.value}}</p></td>
+            </tr>
+            <tr [class.invalid]="i.value < 0">
+                <td><p>Interest Rate:</p></td>
+                <td><p>{{i.value}}</p></td>
+            </tr>
+            <tr>
+                <td><p>Interest Type:</p></td>
+                <td><p>{{intType}}</p></td>
+            </tr>
+            <tr [class.invalid]="y.value < 0 || m.value < 0 || d.value < 0">
+                <td><p>Years: {{y.value}}</p></td>
+                <td><p>Months: {{m.value}}</p></td>
+                <td><p>Days: {{d.value}}</p></td>
+            </tr>
+            <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0 || m.value < 0 || d.value < 0">
+                <td><p>Simple Interest:</p></td>
+                <td><h1 class="result"> {{si}}</h1></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <table>
+            <caption>SIMPLE INTEREST</caption>
+            <tr>
+                <td><p>Principal Amount:</p></td>
+                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>
+            </tr>
+            <tr>
+                <td>Interest Rate:</td>
+                <td><input [(ngModel)]="interest" type="number" #i (keyup)="calculate()" [class.invalid]="i.value < 0" class="text">
+                </td>
+            </tr>
+            <tr>
+                <td>Interest Type:</td>
+                <td><input type="radio" [(ngModel)]="intType" name="interest" value="Yearly" #yy
+                           (click)="calculate(yy.value)"> Yearly<br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Monthly" #mm
+                           (click)="calculate(mm.value)"> Monthly<br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Quarterly" #qq
+                           (click)="calculate(qq.value)">Quarterly <br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Halfyearly" #hh
+                           (click)="calculate(hh.value)">Halfyearly
+                </td>
+            </tr>
+            <tr>
+                <td>Time Period:</td>
+                <td>
+                    <input [(ngModel)]="years" type="number" #y (keyup)="calculate()" [class.invalid]="y.value < 0" class="text">&nbsp;Years<br><br>
+                    <input [(ngModel)]="months" type="number" #m (keyup)="calculate()" [class.invalid]="m.value < 0" class="text">&nbsp;Months<br><br>
+                    <input [(ngModel)]="days" type="number" #d (keyup)="calculate()" [class.invalid]="d.value < 0" class="text">&nbsp;
+                    Days
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

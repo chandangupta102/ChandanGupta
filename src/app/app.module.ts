@@ -5,6 +5,7 @@ import {MenuComponent} from "./menu.component";
 import {SimpleInterestComponent} from "./simpleInterest.component";
 import {PageNotFoundComponent} from "./pageNotFound.component";
 import {RouterModule, Routes} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 const appRoutes: Routes = [
     { path: 'simpleInterest.component', component: SimpleInterestComponent }, // Path nothing but a New Path
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
 @NgModule({
     imports: [
         BrowserModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        FormsModule
     ],
     declarations: [
         AppComponent,
