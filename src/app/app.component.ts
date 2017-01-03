@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import '../../public/css/styles.css';
-console.log("Hey");
+import {MenuComponent} from "./menu.component";
+
 @Component({
     selector: 'my-app',
-    templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css']
+    templateUrl: './templates/app.component.html',
+    styleUrls: ['./css/app.component.css'],
+    entryComponents:[MenuComponent]
 })
 
 export class AppComponent {
