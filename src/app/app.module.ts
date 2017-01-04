@@ -6,6 +6,7 @@ import {SimpleInterestComponent} from "./simpleInterest.component";
 import {PageNotFoundComponent} from "./pageNotFound.component";
 import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
+import {FooterComponent} from "./footer.component";
 
 const appRoutes: Routes = [
     { path: 'simpleInterest.component', component: SimpleInterestComponent }, // Path nothing but a New Path
@@ -22,7 +23,8 @@ const appRoutes: Routes = [
         AppComponent,
         MenuComponent,
         SimpleInterestComponent,
-        PageNotFoundComponent
+        PageNotFoundComponent,
+        FooterComponent
     ],
     bootstrap: [ AppComponent ]
 })
