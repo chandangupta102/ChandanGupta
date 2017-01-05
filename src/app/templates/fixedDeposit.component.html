@@ -1,17 +1,17 @@
 <div class="maindiv">
     <div class="leftdiv">
         <table>
-            <caption>SI RESULTS</caption>
+            <caption>FD RESULTS</caption>
             <tr [class.invalid]="a.value < 0">
-                <td><p>Principal Amount:</p></td>
+                <td><p>Amount:</p></td>
                 <td><p>{{a.value}}</p></td>
             </tr>
             <tr [class.invalid]="i.value < 0">
-                <td><p>Interest Rate:</p></td>
+                <td><p>FD Interest Rate:<br><small>(per year)</small></p></td>
                 <td><p>{{i.value}} %</p></td>
             </tr>
             <tr>
-                <td><p>Interest Type:</p></td>
+                <td><p>Cummulative Type:</p></td>
                 <td><p class="intType">{{intType}}</p></td>
             </tr>
             <tr [class.invalid]="y.value < 0 || m.value < 0 || d.value < 0">
@@ -20,7 +20,7 @@
                 <td><p>Days: {{d.value}}</p></td>
             </tr>
             <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0 || m.value < 0 || d.value < 0">
-                <td><p>Simple Interest:</p></td>
+                <td><p>Total Aggregate Interest:</p></td>
                 <td><h1 class="result"> {{si}}</h1></td>
             </tr>
             <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0 || m.value < 0 || d.value < 0">
@@ -31,18 +31,18 @@
     </div>
     <div>
         <table>
-            <caption>SIMPLE INTEREST</caption>
+            <caption>FIXED DEPOSIT</caption>
             <tr>
-                <td><p>Principal Amount:</p></td>
+                <td><p>Amount:</p></td>
                 <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>
             </tr>
             <tr>
-                <td>Interest Rate:</td>
+                <td>FD Interest Rate:<br><small>(per year)</small></td>
                 <td><input [(ngModel)]="interest" type="number" #i (keyup)="calculate()" [class.invalid]="i.value < 0" class="text">
                 </td>
             </tr>
             <tr>
-                <td>Interest Type:</td>
+                <td>Cummulative Type:</td>
                 <td><input type="radio" [(ngModel)]="intType" name="interest" value="Yearly" #yy
                            (click)="calculate(yy.value)"> Yearly<br>
                     <input type="radio" [(ngModel)]="intType" name="interest" value="Monthly" #mm

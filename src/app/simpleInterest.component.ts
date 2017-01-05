@@ -13,6 +13,7 @@ export class SimpleInterestComponent {
    interest = 0;
    months = 0;
    intType = 'Yearly';
+    cint = 0;
 
    calculate(value?:any) {
        let intRate = 0, totalTime=0;
@@ -44,5 +45,6 @@ export class SimpleInterestComponent {
        }
        this.si=(this.amt*totalTime*intRate)/100;
        this.si = Math.round (this.si*100) / 100;
+       this.cint = this.si + this.amt;
 }
 }
