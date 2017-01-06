@@ -36,6 +36,15 @@ caption {
     font-weight: bold;
 }
 
+.watermark {
+    opacity: 0.5;
+    color: white;
+    position: absolute;
+    margin-top:250px;
+    margin-left: 300px;
+    font-size: 100px;
+}
+
 .intType {
     text-transform: uppercase;
 }

@@ -8,10 +8,12 @@ import {RouterModule, Routes} from "@angular/router";
 import {FormsModule} from "@angular/forms";
 import {FooterComponent} from "./footer.component";
 import {FixedDepositComponent} from "./fixedDeposit.component";
+import {ProvidentFundComponent} from "./providentFund.component";
 
 const appRoutes: Routes = [
-    { path: 'simpleInterest.component', component: SimpleInterestComponent },
-    { path: 'fixedDeposit.component', component: FixedDepositComponent },  // Path nothing but a New Path
+    { path: 'SI.Calculator', component: SimpleInterestComponent },
+    { path: 'FD.Calculator', component: FixedDepositComponent },
+    { path: 'PPF.Calculator', component: ProvidentFundComponent },  // Path nothing but a New Path
     { path: '**', component: PageNotFoundComponent }
 ];
 
@@ -27,7 +29,8 @@ const appRoutes: Routes = [
         SimpleInterestComponent,
         PageNotFoundComponent,
         FooterComponent,
-        FixedDepositComponent
+        FixedDepositComponent,
+        ProvidentFundComponent
     ],
     bootstrap: [ AppComponent ]
 })

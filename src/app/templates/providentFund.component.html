@@ -1,0 +1,63 @@
+<div class="maindiv">
+    <div class="leftdiv">
+        <table>
+            <caption>PPF RESULTS</caption>
+            <tr>
+                <td><p>Subscription Type:</p></td>
+                <td><p class="intType">{{intType}}</p></td>
+            </tr>
+            <tr [class.invalid]="a.value < 0">
+                <td><p>Amount:</p></td>
+                <td><p>{{a.value}}</p></td>
+            </tr>
+            <tr [class.invalid]="i.value < 0">
+                <td><p>Current Interest Rate:</p></td>
+                <td><p>{{i.value}} %</p></td>
+            </tr>
+            <tr [class.invalid]="y.value < 0">
+                <td><p>Years: </p></td><td><p>{{y.value}}</p></td>
+            </tr>
+            <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0">
+                <td><p>Total Interest:</p></td>
+                <td><h1 class="result"> {{si}}</h1></td>
+            </tr>
+            <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0">
+                <td><p>Total Cummulative Amount:</p></td>
+                <td><h1 class="result"> {{cint}}</h1></td>
+            </tr>
+        </table>
+    </div>
+    <div class="watermark"><h1>PPF</h1></div>
+    <div>
+        <table>
+            <caption>PPF Calculator</caption>
+            <tr>
+                <td>Subscription Type:</td>
+                <td><input type="radio" [(ngModel)]="intType" name="interest" value="Yearly" #yy
+                           (click)="calculate(yy.value)"> Yearly<br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Monthly" #mm
+                           (click)="calculate(mm.value)"> Monthly<br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Quarterly" #qq
+                           (click)="calculate(qq.value)">Quarterly <br>
+                    <input type="radio" [(ngModel)]="intType" name="interest" value="Halfyearly" #hh
+                           (click)="calculate(hh.value)">Halfyearly
+                </td>
+            </tr>
+            <tr>
+                <td><p>Amount:</p></td>
+                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>
+            </tr>
+            <tr>
+                <td>Current Interest Rate:</td>
+                <td><input [(ngModel)]="interest" type="number" #i (keyup)="calculate()" [class.invalid]="i.value < 0" class="text">
+                </td>
+            </tr>
+            <tr>
+                <td>Time Period:</td>
+                <td>
+                    <input [(ngModel)]="years" type="number" #y (keyup)="calculate()" [class.invalid]="y.value < 0" class="text">&nbsp;Years
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

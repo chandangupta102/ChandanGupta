@@ -44,7 +44,7 @@ export class SimpleInterestComponent {
            totalTime=totalTime + (this.days/365);
        }
        this.si=(this.amt*totalTime*intRate)/100;
-       this.si = Math.round (this.si*100) / 100;
+       this.si = Math.round (this.si);
        this.cint = this.si + this.amt;
 }
 }
