@@ -29,9 +29,10 @@
             </tr>
         </table>
     </div>
+    <div class="watermark"><h1>SI</h1></div>
     <div>
         <table>
-            <caption>SIMPLE INTEREST</caption>
+            <caption>SI Calculator</caption>
             <tr>
                 <td><p>Principal Amount:</p></td>
                 <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>

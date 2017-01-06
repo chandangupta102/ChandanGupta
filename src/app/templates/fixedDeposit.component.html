@@ -29,9 +29,10 @@
             </tr>
         </table>
     </div>
+    <div class="watermark"><h1>FD</h1></div>
     <div>
         <table>
-            <caption>FIXED DEPOSIT</caption>
+            <caption>FD Calculator</caption>
             <tr>
                 <td><p>Amount:</p></td>
                 <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>
