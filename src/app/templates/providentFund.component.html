@@ -1,16 +1,20 @@
 <div class="maindiv">
     <div class="leftdiv">
         <table>
-            <caption>PPF RESULTS</caption>
-            <tr>
-                <td><p>Subscription Type:</p></td>
-                <td><p class="intType">{{intType}}</p></td>
-            </tr>
+            <caption>PF RESULTS</caption>
             <tr [class.invalid]="a.value < 0">
-                <td><p>Amount:</p></td>
+                <td><p>Basic Salary:</p></td>
                 <td><p>{{a.value}}</p></td>
             </tr>
-            <tr [class.invalid]="i.value < 0 || i.value >0">
+            <tr [class.invalid]="emp.value < 0 || emp.value > 100">
+                <td><p>Employee Contribution:</p></td>
+                <td><p>{{emp.value}}%</p></td>
+            </tr>
+            <tr [class.invalid]="cmp.value < 0 || cmp.value > 100">
+                <td><p>Employer Contribution</p></td>
+                <td><p>{{cmp.value}}%</p></td>
+            </tr>
+            <tr [class.invalid]="i.value < 0 || i.value > 100">
                 <td><p>Current Interest Rate:<br><small>(per year)</small></p></td>
                 <td><p>{{i.value}} %</p></td>
             </tr>
@@ -27,25 +31,21 @@
             </tr>
         </table>
     </div>
-    <div class="watermark"><h1>PPF</h1></div>
+    <div class="watermark"><h1>EPF</h1></div>
     <div>
         <table>
-            <caption>PPF Calculator</caption>
+            <caption>PF Calculator</caption>
             <tr>
-                <td>Subscription Type:</td>
-                <td><input type="radio" [(ngModel)]="intType" name="interest" value="Yearly" #yy
-                           (click)="calculate(yy.value)"> Yearly<br>
-                    <input type="radio" [(ngModel)]="intType" name="interest" value="Monthly" #mm
-                           (click)="calculate(mm.value)"> Monthly<br>
-                    <input type="radio" [(ngModel)]="intType" name="interest" value="Quarterly" #qq
-                           (click)="calculate(qq.value)">Quarterly <br>
-                    <input type="radio" [(ngModel)]="intType" name="interest" value="Halfyearly" #hh
-                           (click)="calculate(hh.value)">Halfyearly
-                </td>
+                <td><p>Basic Salary:</p></td>
+                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text" placeholder="Enter Basic Salary"></td>
             </tr>
             <tr>
-                <td><p>Amount:</p></td>
-                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text" placeholder="Enter Amount"></td>
+                <td><p>Employee Fund:<br><small>(In Percent)</small></p></td>
+                <td><input [(ngModel)]="employee" type="number" #emp (keyup)="calculate()" [class.invalid]="emp.value < 0 || emp.value > 100" class="text" placeholder="Employee(% of Basic)"></td>
+            </tr>
+            <tr>
+                <td><p>Employer Fund:<br><small>(In Percent)</small></p></td>
+                <td><input [(ngModel)]="employer" type="number" #cmp (keyup)="calculate()" [class.invalid]="cmp.value < 0 || cmp.value > 100" class="text" placeholder="Employer(% of Basic)"></td>
             </tr>
             <tr>
                 <td>Current Interest Rate:<br><small>(per year)</small></td>

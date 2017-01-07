@@ -14,6 +14,9 @@ export class PublicProvidentFundComponent {
     cint = 0;           // total Amt
 
     calculate(value?:any) {
+        if(this.amt< 0 || this.interest < 0 || this.interest >100 || this.years < 0 || this.years %1!== 0) {
+            return;
+        }
         let totalAmt = 1, totalInterest = 0, totalTime = this.years,i=0;
         if(!value)
         {

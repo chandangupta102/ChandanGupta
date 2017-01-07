@@ -10,6 +10,7 @@ import {FooterComponent} from "./footer.component";
 import {FixedDepositComponent} from "./fixedDeposit.component";
 import {PublicProvidentFundComponent} from "./publicProvidentFund.component";
 import {CalculatorComponent} from "./calculator.component";
+import {ProvidentFundComponent} from "./providentFund.component";
 
 const appRoutes: Routes = [
     { path: '', component: CalculatorComponent},
@@ -17,8 +18,9 @@ const appRoutes: Routes = [
     { path: 'SI.Calculator', component: SimpleInterestComponent },
     { path: 'FD.Calculator', component: FixedDepositComponent },
     { path: 'PPF.Calculator', component: PublicProvidentFundComponent },  // Path nothing but a New Path
-    { path: 'PF.Calculator', component: PageNotFoundComponent },
-    { path: 'Calculator', component: CalculatorComponent }
+    { path: 'PF.Calculator', component: ProvidentFundComponent },
+    { path: 'Calculator', component: CalculatorComponent },
+    { path: '**', component: PageNotFoundComponent }
 ];
 
 @NgModule({
@@ -35,6 +37,7 @@ const appRoutes: Routes = [
         FooterComponent,
         FixedDepositComponent,
         PublicProvidentFundComponent,
+        ProvidentFundComponent,
         CalculatorComponent
     ],
     bootstrap: [ AppComponent ]

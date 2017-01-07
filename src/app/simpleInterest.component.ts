@@ -16,6 +16,9 @@ export class SimpleInterestComponent {
     cint = 0;
 
    calculate(value?:any) {
+       if(this.amt< 0 || this.interest < 0 || this.interest >100 || this.years < 0 || this.months < 0 || this.days < 0 || this.years %1!== 0 || this.months%1!== 0 || this.days%1!== 0) {
+           return;
+       }
        let intRate = 0, totalTime=0;
        if(!value)
        {
