@@ -1,0 +1,31 @@
+<div class="maindiv">
+    <div class="leftdiv">
+        <div class="expr"><h1>{{totalExpression}}</h1></div>
+        <div class="result"><p>Ans = {{result}}</p></div>
+        <div class="round-button-left" (click)="calculate()">=</div>
+        <div class="round-button-left" (click)="allClear()">AC</div>
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="expression" class="text" readonly><br><br>
+        <div class="round-button" (click)="addNumber('1')">1</div>
+        <div class="round-button" (click)="addNumber('2')">2</div>
+        <div class="round-button" (click)="addNumber('3')">3</div>
+        <div class="round-button" (click)="clear()">C</div>
+        <br>
+        <div class="round-button" (click)="addNumber('4')">4</div>
+        <div class="round-button" (click)="addNumber('5')">5</div>
+        <div class="round-button" (click)="addNumber('6')">6</div>
+        <div class="round-button" (click)="addToken('*')">*</div>
+        <br>
+        <div class="round-button" (click)="addNumber('7')">7</div>
+        <div class="round-button" (click)="addNumber('8')">8</div>
+        <div class="round-button" (click)="addNumber('9')">9</div>
+        <div class="round-button" (click)="addToken('/')">/</div>
+        <br>
+        <div class="round-button" (click)="addNumber('0')">0</div>
+        <div class="round-button" (click)="addNumber('.')">.</div>
+        <div class="round-button" (click)="addToken('+')">+</div>
+        <div class="round-button" (click)="addToken('-')">-</div>
+        <br>
+    </div>
+</div>
