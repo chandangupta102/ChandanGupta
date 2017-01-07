@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 @Component({
     selector: 'provident-fund',
-    templateUrl: './templates/providentFund.component.html',
-    styleUrls: ['./css/providentFund.component.css']
+    templateUrl: './templates/publicProvidentFund.component.html',
+    styleUrls: ['./css/publicProvidentFund.component.css']
 })
 
-export class ProvidentFundComponent {
+export class PublicProvidentFundComponent {
     amt = 0;           // Actual Amount
     years = 0;         // years
     si = 0;            // Earn Interest

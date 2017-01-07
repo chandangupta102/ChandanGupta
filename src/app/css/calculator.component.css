@@ -8,6 +8,7 @@
     border-right:1px solid green;
     width:50%;
     height: 650px;
+    overflow: auto;
 }
 .expr {
     height:200px;

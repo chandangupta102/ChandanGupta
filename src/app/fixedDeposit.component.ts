@@ -48,8 +48,9 @@ export class FixedDepositComponent {
         }
         intRate = 1+(intRate/100);
         this.si=(this.amt*Math.pow(intRate,totalTime));
-        this.cint = Math.round (this.si);
         this.si = this.si - this.amt;
-        this.si = Math.round (this.si);
+        this.si = Math.round (this.si*100)/100;
+        this.cint = this.si + this.amt;
+        this.cint = Math.round (this.cint*100)/100;
     }
 }
