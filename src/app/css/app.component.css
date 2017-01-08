@@ -7,7 +7,7 @@ main {
     margin-top: 50px;
     display: block;
     width: 1220px;
-    height:1441px;
+    height:900px;
 }
 
 .route-body {
@@ -17,4 +17,14 @@ main {
 
 .footer-body {
     margin-left:35px;
+}
+
+span{
+    color:  #5383d3;
+}
+
+h1 {
+    color:  black;
+    font: normal 70px 'Cookie', cursive;
+    margin: 0;
 }
