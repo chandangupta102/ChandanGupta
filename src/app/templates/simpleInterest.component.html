@@ -6,7 +6,7 @@
                 <td><p>Principal Amount:</p></td>
                 <td><p>{{a.value}}</p></td>
             </tr>
-            <tr [class.invalid]="i.value < 0">
+            <tr [class.invalid]="i.value < 0 || i.value >100">
                 <td><p>Interest Rate:</p></td>
                 <td><p>{{i.value}} %</p></td>
             </tr>
@@ -14,17 +14,17 @@
                 <td><p>Interest Type:</p></td>
                 <td><p class="intType">{{intType}}</p></td>
             </tr>
-            <tr [class.invalid]="y.value < 0 || m.value < 0 || d.value < 0">
-                <td><p>Years: {{y.value}}</p></td>
-                <td><p>Months: {{m.value}}</p></td>
-                <td><p>Days: {{d.value}}</p></td>
+            <tr>
+                <td [class.invalid]="y.value < 0 || y.value %1!== 0"><p>Years: {{y.value}}</p></td>
+                <td [class.invalid]="m.value < 0 || m.value %1!== 0"><p>Months: {{m.value}}</p></td>
+                <td [class.invalid]="d.value < 0 || d.value %1!== 0"><p>Days: {{d.value}}</p></td>
             </tr>
-            <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0 || m.value < 0 || d.value < 0">
-                <td><p>Simple Interest:</p></td>
+            <tr>
+                <td><p>Simple Interest:<br><small>(Up to 2 Decimal Point)</small></p></td>
                 <td><h1 class="result"> {{si}}</h1></td>
             </tr>
-            <tr [class.invalid]="a.value < 0 || i.value < 0 || y.value < 0 || m.value < 0 || d.value < 0">
-                <td><p>Total Cummulative Amount:</p></td>
+            <tr>
+                <td><p>Total Cummulative Amount:<br><small>(Up to 2 Decimal Point)</small></p></td>
                 <td><h1 class="result"> {{cint}}</h1></td>
             </tr>
         </table>
@@ -35,11 +35,11 @@
             <caption>SI Calculator</caption>
             <tr>
                 <td><p>Principal Amount:</p></td>
-                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text"></td>
+                <td><input [(ngModel)]="amt" type="number" #a (keyup)="calculate()" [class.invalid]="a.value < 0" class="text" placeholder="Enter Principal Amount"></td>
             </tr>
             <tr>
                 <td>Interest Rate:</td>
-                <td><input [(ngModel)]="interest" type="number" #i (keyup)="calculate()" [class.invalid]="i.value < 0" class="text">
+                <td><input [(ngModel)]="interest" type="number" #i (keyup)="calculate()" [class.invalid]="i.value < 0 || i.value>100" class="text" placeholder="Enter Interest Rate">
                 </td>
             </tr>
             <tr>
@@ -57,9 +57,9 @@
             <tr>
                 <td>Time Period:</td>
                 <td>
-                    <input [(ngModel)]="years" type="number" #y (keyup)="calculate()" [class.invalid]="y.value < 0" class="text">&nbsp;Years<br><br>
-                    <input [(ngModel)]="months" type="number" #m (keyup)="calculate()" [class.invalid]="m.value < 0" class="text">&nbsp;Months<br><br>
-                    <input [(ngModel)]="days" type="number" #d (keyup)="calculate()" [class.invalid]="d.value < 0" class="text">&nbsp;
+                    <input [(ngModel)]="years" type="number" #y (keyup)="calculate()" [class.invalid]="y.value < 0 || y.value %1!== 0" class="text" placeholder="Number of Years">&nbsp;Years<br><br>
+                    <input [(ngModel)]="months" type="number" #m (keyup)="calculate()" [class.invalid]="m.value < 0 || m.value%1!== 0" class="text" placeholder="Number of Months">&nbsp;Months<br><br>
+                    <input [(ngModel)]="days" type="number" #d (keyup)="calculate()" [class.invalid]="d.value < 0 || d.value%1!== 0" class="text" placeholder="Number of Days">&nbsp;
                     Days
                 </td>
             </tr>
