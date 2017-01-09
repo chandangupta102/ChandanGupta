@@ -34,12 +34,16 @@ export class CalculatorComponent {
     }
 
     addToken(value:string) {
+        if (this.expression === "0"&&value==="-") {
+            this.expression = value;
+            return;
+        }
         if (this.expression === "0") {
             return;
         }
         if(this.expression.slice(-1)==="." || this.expression.slice(-1)==="*" || this.expression.slice(-1)==="/" || this.expression.slice(-1)==="+" || this.expression.slice(-1)==="-")
         {
-            return;
+            return;           // we are finding last position element
         }
         this.calculate();
         this.expression += value;
@@ -47,15 +51,35 @@ export class CalculatorComponent {
     }
 
     clear() {
-        if(this.expression.length===1)
+        let op = false;
+        let neg = false;
+        if(this.expression.length===1||this.expression.length===0)
         {
             this.expression = "0";
             return;
         }
-        if(this.result!=="0" && this.expression.indexOf("*")==-1 && this.expression.indexOf("/")==-1 && this.expression.indexOf("+")==-1 && this.expression.indexOf("-")==-1)
+        if(this.result!=="0" && this.expression.indexOf("*")==-1 && this.expression.indexOf("/")==-1)
+        {
+            op = true;
+        }
+
+        if (op && this.expression.indexOf("-") === -1) {
+            neg=true;
+        }
+        else if (op && this.expression.lastIndexOf("-") === 0)   // Handle negative clear
+        {
+            neg =true;
+        }
+
+        if (op && neg && this.expression.indexOf("+") === -1) {
+            return;
+        }
+        else if (op && neg && this.expression.charAt(this.expression.indexOf("+")-1) === "e")   // Handle negative clear
         {
             return;
         }
+
+
         let lindex= this.expression.length -1;
         this.expression = this.expression.slice(0,lindex);
 
@@ -89,8 +113,8 @@ export class CalculatorComponent {
             a=this.expression.slice(0,sindex);
             b=this.expression.slice(sindex+1,this.expression.length);
         }
-        sindex = this.expression.indexOf("-");
-        if(sindex===this.expression.length-1)
+        sindex = this.expression.lastIndexOf("-");
+        if(sindex===this.expression.length-1 && sindex===0)
         {
             return;
         }
