@@ -11,13 +11,32 @@ export class CalculatorComponent {
     result = "0";
     dot = false;
     addNumber(value:string) {
+        let op = false;
+        let neg = false;
         if (this.expression === "0") {
             this.expression = "";
         }
-        if(this.result!=="0" && this.expression.indexOf("*")==-1 && this.expression.indexOf("/")==-1 && this.expression.indexOf("+")==-1 && this.expression.indexOf("-")==-1)
+        if(this.result!=="0" && this.expression.indexOf("*")==-1 && this.expression.indexOf("/")==-1)
         {
-            return;                    // Check Total expression You cant modify Answer
+            op = true;
         }
+
+        if (op && this.expression.indexOf("-") === -1) {
+            neg=true;
+        }
+        else if (op && this.expression.lastIndexOf("-") === 0)   // Handle negative clear
+        {
+            neg =true;
+        }
+
+        if (op && neg && this.expression.indexOf("+") === -1) {
+            return;
+        }
+        else if (op && neg && this.expression.charAt(this.expression.indexOf("+")-1) === "e")   // Handle negative clear
+        {
+            return;
+        }
+
         if(value=="."){
            if(!this.dot)
            {
