@@ -16,6 +16,9 @@ export class SimpleInterestComponent {
     cint = 0;
 
    calculate(value?:any) {
+       if(this.amt< 0 || this.interest < 0 || this.interest >100 || this.years < 0 || this.months < 0 || this.days < 0 || this.years %1!== 0 || this.months%1!== 0 || this.days%1!== 0) {
+           return;
+       }
        let intRate = 0, totalTime=0;
        if(!value)
        {
@@ -44,7 +47,8 @@ export class SimpleInterestComponent {
            totalTime=totalTime + (this.days/365);
        }
        this.si=(this.amt*totalTime*intRate)/100;
-       this.si = Math.round (this.si);
+       this.si = Math.round (this.si*100)/100;
        this.cint = this.si + this.amt;
+       this.cint = Math.round (this.cint*100)/100;
 }
 }
