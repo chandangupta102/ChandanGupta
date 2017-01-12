@@ -1,13 +1,11 @@
-main {
-    padding-top: 1em;
-    padding-left:20em;
-    padding-right:20em;
+.main {
     font-family: Arial, Helvetica, sans-serif;
     text-align: center;
-    margin-top: 50px;
+    padding-top: 50px;
     display: block;
     width: 1220px;
-    height:900px;
+    height:100%;
+    overflow:auto;
 }
 
 .route-body {
