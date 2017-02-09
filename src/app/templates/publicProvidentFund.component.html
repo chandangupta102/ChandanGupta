@@ -10,7 +10,7 @@
                 <td><p>Amount:</p></td>
                 <td><p>{{a.value}}</p></td>
             </tr>
-            <tr [class.invalid]="i.value < 0 || i.value >0">
+            <tr [class.invalid]="i.value < 0 || i.value >100">
                 <td><p>Current Interest Rate:<br><small>(per year)</small></p></td>
                 <td><p>{{i.value}} %</p></td>
             </tr>
