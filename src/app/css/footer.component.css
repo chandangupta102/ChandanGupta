@@ -31,7 +31,7 @@
     margin: 0;
 }
 
-.footer-distributed h3 span{
+ span{
     color:  #5383d3;
 }
 
@@ -44,10 +44,14 @@
 }
 
 .footer-distributed .footer-links a{
-    display:inline-block;
+    display:block;
     line-height: 1.8;
     text-decoration: none;
     color:  inherit;
+}
+
+.footer-distributed .footer-links a:hover{
+    color:  #5383d3;
 }
 
 .footer-distributed .footer-company-name{
